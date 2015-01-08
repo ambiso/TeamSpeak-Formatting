@@ -1,6 +1,6 @@
 #include "../include/helpers.hpp"
 
-std::string toLower(const std::string &in)
+std::string toLower(const std::string& in)
 {
     std::string out;
     for(unsigned int i = 0; i < in.length(); i++)
@@ -13,7 +13,7 @@ std::string toLower(const std::string &in)
     return out;
 }
 
-std::string compress(const std::string &in)
+std::string compress(const std::string& in)
 {
     std::string out;
     const std::string startstr = "[COLOR=#", endstr = "[/COLOR]";
@@ -40,8 +40,10 @@ std::string compress(const std::string &in)
     return out;
 }
 
-std::string reFormat(const std::string &in, modeFactory* color)
+std::string reFormat(const std::string& in, modeFactory* color)
 {
+    if(color == NULL)
+        exit(2);
     std::stringstream res;
     for(unsigned int i = 0; i < in.length(); i++)
     {
