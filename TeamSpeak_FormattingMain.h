@@ -34,8 +34,8 @@ class TeamSpeak_FormattingDialog: public wxDialog
 
         //(*Identifiers(TeamSpeak_FormattingDialog)
         static const long ID_MODECHOICE1;
-        static const long ID_INPUTTEXT1;
         static const long ID_LETTERUSAGE1;
+        static const long ID_INPUTTEXT1;
         //*)
 
         //(*Declarations(TeamSpeak_FormattingDialog)

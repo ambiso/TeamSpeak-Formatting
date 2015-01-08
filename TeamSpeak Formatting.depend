@@ -2672,13 +2672,14 @@
 1420618835 source:e:\programmierung\wx\teamspeak-formatting\src\colorred.cpp
 	"../include/colorRed.h"
 
-1420618855 source:e:\programmierung\wx\teamspeak-formatting\src\helpers.cpp
+1420753476 source:e:\programmierung\wx\teamspeak-formatting\src\helpers.cpp
 	"../include/helpers.hpp"
 
-1420618810 e:\programmierung\wx\teamspeak-formatting\include\helpers.hpp
+1420753476 e:\programmierung\wx\teamspeak-formatting\include\helpers.hpp
 	<string>
 	<sstream>
 	<iomanip>
+	<stdlib.h>
 	"modeFactory.h"
 
 1420618861 source:e:\programmierung\wx\teamspeak-formatting\src\modefactory.cpp
@@ -2692,14 +2693,14 @@
 1420734018 e:\programmierung\wx\teamspeak-formatting\teamspeak_formattingapp.h
 	<wx/app.h>
 
-1420750329 e:\programmierung\wx\teamspeak-formatting\teamspeak_formattingmain.h
+1420752496 e:\programmierung\wx\teamspeak-formatting\teamspeak_formattingmain.h
 	<wx/sizer.h>
 	<wx/stattext.h>
 	<wx/textctrl.h>
 	<wx/choice.h>
 	<wx/dialog.h>
 
-1420750369 source:e:\programmierung\wx\teamspeak-formatting\teamspeak_formattingmain.cpp
+1420753526 source:e:\programmierung\wx\teamspeak-formatting\teamspeak_formattingmain.cpp
 	"TeamSpeak_FormattingMain.h"
 	<wx/msgdlg.h>
 	<wx/clipbrd.h>
