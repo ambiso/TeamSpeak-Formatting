@@ -99,12 +99,14 @@ void TeamSpeak_FormattingDialog::OnChoice1Select(wxCommandEvent& event)
 void TeamSpeak_FormattingDialog::OnTextCtrl1Text(wxCommandEvent& event)
 {
     modeFactory* color = modes[mode];
-    std::string formatted = compress(reFormat(std::string(InputText->GetValue().mb_str()), color));
-    int length = formatted.length() + std::count(formatted.begin(), formatted.end(), '/');
-    if(length > 0 && wxTheClipboard->Open())
+    std::string formatted = std::string(InputText->GetValue().mb_str());
+    if(formatted.length() > 0 && wxTheClipboard->Open())
     {
-        LetterUsage->SetLabel(wxString::Format(wxT("length: %i"), length));
+        std::string formatted = compress(reFormat(formatted, color));
+
         wxTheClipboard->SetData(new wxTextDataObject(formatted));
         wxTheClipboard->Close();
     }
+    int length = formatted.length() + std::count(formatted.begin(), formatted.end(), '/');
+    LetterUsage->SetLabel(wxString::Format(wxT("length: %i"), length));
 }
