@@ -44,6 +44,7 @@ class TeamSpeak_FormattingDialog: public wxDialog
         wxBoxSizer* BoxSizer2;
         wxBoxSizer* BoxSizer1;
         wxChoice* ModeChoice;
+        wxBoxSizer* BoxSizer3;
         //*)
 
         DECLARE_EVENT_TABLE()
