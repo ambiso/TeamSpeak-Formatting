@@ -97,7 +97,6 @@ void TeamSpeak_FormattingDialog::OnChoice1Select(wxCommandEvent& event)
 
 void TeamSpeak_FormattingDialog::OnTextCtrl1Text(wxCommandEvent& event)
 {
-    std::string modeA = mode;
     modeFactory* color = modes[mode];
     if(color == NULL)
         exit(2);

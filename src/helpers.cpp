@@ -24,6 +24,8 @@ std::string compress(const std::string& in)
     for(unsigned int pos = 0; pos < in.length(); pos += startstr.length() + COLOR_LEN + 2 + endstr.length())
     {
         pos = in.find(startstr, pos);
+        if(pos == std::string::npos)
+            break;
         color = in.substr(pos + startstr.length(), COLOR_LEN);
         if(color == lastcolor)
         {
