@@ -93,6 +93,7 @@ TeamSpeak_FormattingDialog::~TeamSpeak_FormattingDialog()
 void TeamSpeak_FormattingDialog::OnChoice1Select(wxCommandEvent& event)
 {
     mode = ModeChoice->GetString(ModeChoice->GetSelection()).mb_str();
+    OnTextCtrl1Text(event);
 }
 
 void TeamSpeak_FormattingDialog::OnTextCtrl1Text(wxCommandEvent& event)
