@@ -22,5 +22,6 @@ class modeFactory
 #include "colorFadeInAndOut.h"
 #include "colorEmergency.h"
 #include "colorRed.h"
+#include "colorGreenText.h"
 
 #endif // MODEFACTORY_H

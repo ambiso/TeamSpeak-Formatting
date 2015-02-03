@@ -28,13 +28,14 @@
 1420618797 e:\programmierung\wx\teamspeak-formatting\include\coloremergency.h
 	"modeFactory.h"
 
-1420618777 e:\programmierung\wx\teamspeak-formatting\include\modefactory.h
+1422987821 e:\programmierung\wx\teamspeak-formatting\include\modefactory.h
 	"hsv.cpp"
 	"colorRainbow.h"
 	"colorFadeout.h"
 	"colorFadeInAndOut.h"
 	"colorEmergency.h"
 	"colorRed.h"
+	"colorGreenText.h"
 
 1420571354 e:\programmierung\wx\teamspeak-formatting\include\hsv.cpp
 	<math.h>
@@ -1322,7 +1323,7 @@
 1412500750 d:\libraries\wxwidgets-3.0.2\include\wx\msw\dialog.h
 	"wx/panel.h"
 
-1420755527 source:e:\programmierung\wx\teamspeak-formatting\teamspeak_formattingmain.cpp
+1422987821 source:e:\programmierung\wx\teamspeak-formatting\teamspeak_formattingmain.cpp
 	"TeamSpeak_FormattingMain.h"
 	<wx/msgdlg.h>
 	<wx/clipbrd.h>
@@ -1410,4 +1411,10 @@
 1412500750 d:\libraries\wxwidgets-3.0.2\include\wx\msw\ole\dataobj2.h
 
 1412500750 d:\libraries\wxwidgets-3.0.2\include\wx\msw\clipbrd.h
+
+1422988076 e:\programmierung\wx\teamspeak-formatting\include\colorgreentext.h
+	"modeFactory.h"
+
+1422988121 source:e:\programmierung\wx\teamspeak-formatting\src\colorgreentext.cpp
+	"../include/colorGreenText.h"
 
