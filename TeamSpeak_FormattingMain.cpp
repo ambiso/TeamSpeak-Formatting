@@ -48,6 +48,7 @@ TeamSpeak_FormattingDialog::TeamSpeak_FormattingDialog(wxWindow* parent,wxWindow
     modes["Spook"] = new colorFadeInAndOut();
     modes["Emergency"] = new colorEmergency();
     modes["Red"] = new colorRed();
+    modes["Greentext"] = new colorGreenText();
 
     wxArrayString choices;
     for(modeMap::iterator it = modes.begin(); it != modes.end(); ++it)
