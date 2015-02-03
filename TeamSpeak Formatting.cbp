@@ -15,6 +15,7 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="D:/Libraries/wxWidgets-3.0.2/lib/gcc_lib/mswu" />
+					<Add directory="include" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="D:/Libraries/wxWidgets-3.0.2/lib/gcc_lib/mswu" />
@@ -39,6 +40,7 @@
 					<Add option="-fexpensive-optimizations" />
 					<Add option="-O3" />
 					<Add directory="D:/Libraries/wxWidgets-3.0.2/lib/gcc_lib/mswu" />
+					<Add directory="include" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="D:/Libraries/wxWidgets-3.0.2/lib/gcc_lib/mswu" />
@@ -90,6 +92,7 @@
 		<Unit filename="include/colorEmergency.h" />
 		<Unit filename="include/colorFadeInAndOut.h" />
 		<Unit filename="include/colorFadeout.h" />
+		<Unit filename="include/colorGreenText.h" />
 		<Unit filename="include/colorRainbow.h" />
 		<Unit filename="include/colorRed.h" />
 		<Unit filename="include/helpers.hpp" />
@@ -101,6 +104,7 @@
 		<Unit filename="src/colorEmergency.cpp" />
 		<Unit filename="src/colorFadeInAndOut.cpp" />
 		<Unit filename="src/colorFadeout.cpp" />
+		<Unit filename="src/colorGreenText.cpp" />
 		<Unit filename="src/colorRainbow.cpp" />
 		<Unit filename="src/colorRed.cpp" />
 		<Unit filename="src/helpers.cpp" />
