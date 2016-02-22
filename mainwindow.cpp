@@ -5,8 +5,8 @@
 #include <QTextStream>
 #include <QVBoxLayout>
 #include <QFile>
-#include <utility>
 #include <QRegExp>
+#include <QDir>
 
 #include <iostream>
 #include <memory>
@@ -14,6 +14,7 @@
 #include <set>
 #include <stack>
 #include <cassert>
+#include <utility>
 
 #include <v8/v8.h>
 #include <v8/libplatform/libplatform.h>
@@ -32,7 +33,7 @@ class ArrayBufferAllocator : public v8::ArrayBuffer::Allocator {
   virtual void Free(void* data, size_t) { free(data); }
 };
 
-MainWindow::MainWindow(QWidget *parent, char const* directory) :
+MainWindow::MainWindow(QWidget *parent, char const *directory, char const *scriptdir) :
     QMainWindow(parent),
     _ui(new Ui::MainWindow)
 {
@@ -47,10 +48,14 @@ MainWindow::MainWindow(QWidget *parent, char const* directory) :
     ArrayBufferAllocator allocator;
     Isolate::CreateParams create_params;
     create_params.array_buffer_allocator = &allocator;
-    _isolate = Isolate::New(create_params); //Isolate::GetCurrent();
+    _isolate = Isolate::New(create_params);
+    _scriptdir = QString(scriptdir);
     _ui->setupUi(this);
     QObject::connect(_ui->compressionSlider, SIGNAL(valueChanged(int)), _ui->compressionSpin, SLOT(setValue(int)));
     QObject::connect(_ui->compressionSpin, SIGNAL(valueChanged(int)), _ui->compressionSlider, SLOT(setValue(int)));
+    _compression = _ui->compressionSlider->value();
+    updateScriptFiles();
+    update();
 }
 
 MainWindow::~MainWindow()
@@ -62,12 +67,23 @@ MainWindow::~MainWindow()
     delete _ui;
 }
 
-void MainWindow::update() {
+void MainWindow::updateScriptFiles()
+{
+    QDir d("scripts");
+    int count = _ui->scriptComboBox->count();
+    for(int i = 0; i < count; ++i) {
+        _ui->scriptComboBox->removeItem(0); //TODO: find a better way to remove all items
+    }
+    _ui->scriptComboBox->addItems(d.entryList(QDir::Files, QDir::Name));
+}
+
+void MainWindow::update()
+{
     if(_ui->scriptComboBox->count() == 0) {
         infoText("Please add a script to format");
         return;
     }
-    QFile srcf(_ui->scriptComboBox->currentText());
+    QFile srcf(_scriptdir + _ui->scriptComboBox->currentText());
     srcf.open(QIODevice::ReadOnly);
     if(!srcf.isOpen()) {
         infoText("Could not load script");
@@ -155,15 +171,14 @@ void MainWindow::update() {
         unsigned char red = formatlo->Get(context, rString).ToLocalChecked()->Int32Value(context).FromJust();
         unsigned char green = formatlo->Get(context, gString).ToLocalChecked()->Int32Value(context).FromJust();
         unsigned char blue = formatlo->Get(context, bString).ToLocalChecked()->Int32Value(context).FromJust();
-
         formatted[pos++] = FChar(c, Format(Color(red, green, blue), bold, italic, underline, strike));
     }
 
-    FChar prev;
+    FChar prev; //todo: move to formatting
     for(int i = 0; i < msglen; ++i) {
         FChar &cur = formatted[i];
         //apply color compression
-        if(!cur.format().getColor().diff(prev.format().getColor(), _compression)) {
+        if(!cur.getFormat().getColor().diff(prev.getFormat().getColor(), _compression)) {
             cur.format().setColoren(false);
             cur.format().setColor(prev.format().getColor());
         }
@@ -197,19 +212,6 @@ void MainWindow::on_compressionSlider_valueChanged(int value)
     }
 }
 
-void MainWindow::on_addButton_clicked()
-{
-    QStringList scripts = QFileDialog::getOpenFileNames(this, tr("Open Script"), "", tr("JS Files (*.js)"));
-    _ui->scriptComboBox->addItems(scripts);
-    update();
-}
-
-void MainWindow::on_removeButton_clicked()
-{
-    _ui->scriptComboBox->removeItem(_ui->scriptComboBox->currentIndex());
-    update();
-}
-
 void MainWindow::infoText(QString str)
 {
     _ui->infoLabel->setText(str);
@@ -218,5 +220,11 @@ void MainWindow::infoText(QString str)
 
 void MainWindow::on_scriptComboBox_currentIndexChanged(int)
 {
+    update();
+}
+
+void MainWindow::on_refreshButton_clicked()
+{
+    updateScriptFiles();
     update();
 }

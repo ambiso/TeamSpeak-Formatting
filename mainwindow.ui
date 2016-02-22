@@ -36,22 +36,12 @@
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="addButton">
-          <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add a javascript file&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="text">
-           <string>+</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QToolButton" name="removeButton">
+         <widget class="QToolButton" name="refreshButton">
           <property name="toolTip">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove the currently selected script&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
-           <string>-</string>
+           <string>Refresh</string>
           </property>
          </widget>
         </item>
@@ -96,7 +86,7 @@
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Info on application state.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
-         <string>Length: 0</string>
+         <string>Infotext</string>
         </property>
        </widget>
       </item>
