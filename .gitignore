@@ -8,6 +8,7 @@ log/
 dist/
 node_modules/
 bower_components/
+semantic/
 
 ## Files
 result.xml
