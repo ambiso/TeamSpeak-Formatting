@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+</head>
+<body>
+<main>
+    <div class="flash">
+        <div class="ui center aligned container">
+            <div class="ui form">
+                <div class="ui field">
+                    <div class="ui right action input">
+                        <input type="text" id="textinput" placeholder="Your text...">
+                        <div class="ui basic floating dropdown button modeselect">
+                            <div class="text">None</div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui field">
+                    <div class="ui right labeled input">
+                        <input type="text" id="styled">
+                        <div class="ui basic label" id="lengthlabel">
+                            Length: 0
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
