@@ -7,8 +7,15 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
-.flash {
+.singlepage {
     display: flex;
+    justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
+}
+#headertext {
+    font-weight: 700;
+    font-size: 10em;
+    padding-bottom: 10vh;
 }

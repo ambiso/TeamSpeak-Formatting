@@ -37,9 +37,8 @@ export function modeList() {
 export function transformText(text, mode) {
     const modefunc = modemap().get(mode.toLowerCase());
     if (modefunc) {
-        console.log('text', text, typeof text);
         return modefunc(text);
     }
-    console.log('unknown mode');
+    console.error('unknown mode');
     return text;
 }

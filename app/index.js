@@ -5,6 +5,7 @@
 // Load application styles
 import 'styles/index.scss';
 import {transformText, modeList} from "./transformText";
+import {render} from 'phoenix-bbcode';
 function capitalizeFirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -29,13 +30,15 @@ $(document).ready(() => {
         .dropdown({onChange: (e) => {
             mode = e;
             localStorage.prev_mode = e;
+            $('#headertext').html(render(transformText('Text Style', e)));
         }})
         .dropdown('set selected', prev_mode);
     const input = $('#textinput');
     const target = $('#styled');
-    input.on('input', (e) => {
+    input.on('input', () => {
         const transformed = transformText(input.val(), mode);
         target.val(transformed);
+
         $('#lengthlabel').text(`Length: ${transformed.length}`);
         let currentFocus = document.activeElement;
         const tgt = target.get(0);

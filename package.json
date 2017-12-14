@@ -9,6 +9,7 @@
   "dependencies": {
     "color-space": "^1.15.0",
     "lodash": "^4.17.4",
+    "phoenix-bbcode": "^1.4.0",
     "semantic-ui": "^2.2.13"
   },
   "devDependencies": {
