@@ -26,16 +26,9 @@ $(document).ready(() => {
         prev_mode = localStorage.prev_mode;
         console.log('restoring mode', prev_mode);
     }
-    $('.ui.dropdown')
-        .dropdown({onChange: (e) => {
-            mode = e;
-            localStorage.prev_mode = e;
-            $('#headertext').html(render(transformText('Text Style', e, 0, true)));
-        }})
-        .dropdown('set selected', prev_mode);
     const input = $('#textinput');
     const target = $('#styled');
-    input.on('input', () => {
+    function updateText() {
         const transformed = transformText(input.val(), mode, 10, true);
         target.val(transformed);
 
@@ -50,5 +43,14 @@ $(document).ready(() => {
         if (currentFocus && typeof currentFocus.focus === "function") {
             currentFocus.focus();
         }
-    });
+    }
+    $('.ui.dropdown')
+        .dropdown({onChange: (e) => {
+            mode = e;
+            localStorage.prev_mode = e;
+            $('#headertext').html(render(transformText('Text Style', e, 0, true)));
+            updateText();
+        }})
+        .dropdown('set selected', prev_mode);
+    input.on('input', updateText);
 });
