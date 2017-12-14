@@ -19,3 +19,8 @@ html {
     font-size: 10em;
     padding-bottom: 10vh;
 }
+@media only screen and (max-device-width:480px) {
+    #headertext {
+        font-size: 4em;
+    }
+}
