@@ -30,13 +30,13 @@ $(document).ready(() => {
         .dropdown({onChange: (e) => {
             mode = e;
             localStorage.prev_mode = e;
-            $('#headertext').html(render(transformText('Text Style', e)));
+            $('#headertext').html(render(transformText('Text Style', e, 0, true)));
         }})
         .dropdown('set selected', prev_mode);
     const input = $('#textinput');
     const target = $('#styled');
     input.on('input', () => {
-        const transformed = transformText(input.val(), mode);
+        const transformed = transformText(input.val(), mode, 10, true);
         target.val(transformed);
 
         $('#lengthlabel').text(`Length: ${transformed.length}`);
